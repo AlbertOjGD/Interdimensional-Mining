@@ -5,23 +5,41 @@ using UnityEngine;
 public class claw : MonoBehaviour
 {
     public GameObject selected;
-    private float grabDistance = 0.5f;
+    public BoxCollider bc;
+    public GameObject geo;
+    private float grabDistance = 0.8f;
     private bool holding = false;
+
+    private float targetColSize = 0.6f;
+    private float defaultColSize = 0.8f;
+
+
+    private void Start()
+    {
+       geo = GameObject.Find("Geo");
+    }
 
     private void Update()
     {
+        /*if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log(Vector3.Magnitude(selected.transform.position - this.transform.position));
+        }*/
+
         if (selected != null  && Vector3.Magnitude(selected.transform.position - this.transform.position) <= grabDistance)
         {
             if (Input.GetKeyDown(KeyCode.Space) && !holding)
             {
                 selected.transform.SetParent(this.transform);
-                selected.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+                selected.GetComponent<BoxCollider>().size = new Vector3(targetColSize, targetColSize, targetColSize);
+                Physics.IgnoreCollision(selected.GetComponent<BoxCollider>(), bc);
                 holding = true;
             }
             else if (Input.GetKeyDown(KeyCode.Space) && holding)
             {
-                selected.transform.SetParent(null);
-                selected.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+                selected.transform.SetParent(geo.transform);
+                selected.GetComponent<BoxCollider>().size = new Vector3(defaultColSize, defaultColSize, defaultColSize);
+                Physics.IgnoreCollision(selected.GetComponent<BoxCollider>(), bc, false);
                 holding = false;
             }
         }

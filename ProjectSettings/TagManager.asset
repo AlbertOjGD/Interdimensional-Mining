@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - pickup
+  - mineral
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Movable
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

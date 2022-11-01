@@ -38,31 +38,41 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
     }
-
+    
     Vector2 GetInput()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.W))
         {
             inputLever.x = 1;
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.X))
         {
             inputLever.x = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.X))
+        /*else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.S))
+        {
+            inputLever.x = 0;
+        }*/
+        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.X))
         {
             inputLever.x = -1;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Alpha2))
         {
             inputLever.y = 1;
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+
+        else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Q))
         {
             inputLever.y = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.Z))
+
+        /*else if (Input.GetKey(KeyCode.A))
+        {
+            inputLever.y = 0;
+        }*/
+        else if (Input.GetKey(KeyCode.Z))
         {
             inputLever.y = -1;
         }
