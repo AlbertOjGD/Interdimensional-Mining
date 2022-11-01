@@ -158,3 +158,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deliveredMat: 0
   goalCount: 1
+  currentLevel: Level_01
+  nextLevel: Level_02
