@@ -21,8 +21,6 @@ public class PlayerController : MonoBehaviour
 
     public int score;
 
-    public ScoreCard scoreCard;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +32,7 @@ public class PlayerController : MonoBehaviour
         spawn = GameObject.Find("SpawnPoint");
         paused = false;
         transform.position = spawn.transform.position;
-        scoreCard = GameObject.Find("ScoreCard").GetComponent<ScoreCard>();
-        score = scoreCard.score;
+        score = ScoreCard.score;
     }
 
     // Update is called once per frame

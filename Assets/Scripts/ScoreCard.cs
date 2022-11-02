@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreCard : MonoBehaviour
+public static class ScoreCard
 {
-    public int score = 0;
+    public static int score { get; set;}
 }

@@ -14,15 +14,12 @@ public class Goal : MonoBehaviour
     public Animator animator;
 
     public Text score;
-    public ScoreCard scoreCard;
 
     private PlayerController pc;
     // Start is called before the first frame update
     void Start()
     {
         pc = GameObject.Find("Player").GetComponent<PlayerController>();
-        scoreCard = GameObject.Find("ScoreCard").GetComponent<ScoreCard>();
-
     }
 
     // Update is called once per frame
@@ -59,6 +56,7 @@ public class Goal : MonoBehaviour
     {
         if (other.gameObject.name == "Mineral")
         {
+            pc.score += 10;
             deliveredMat++;
             Destroy(other.gameObject);
         }
@@ -71,7 +69,7 @@ public class Goal : MonoBehaviour
 
     private IEnumerator LoadScene()
     {
-        scoreCard.score = pc.score;
+        ScoreCard.score = pc.score;
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(nextLevel.ToString());
     }
