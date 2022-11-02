@@ -8,7 +8,8 @@ public class claw : MonoBehaviour
     public BoxCollider bc;
     public GameObject geo;
     private float grabDistance = 0.8f;
-    private bool holding = false;
+    [SerializeField]
+    public bool holding = false;
 
     private float targetColSize = 0.6f;
     private float defaultColSize = 0.8f;
@@ -26,9 +27,9 @@ public class claw : MonoBehaviour
             Debug.Log(Vector3.Magnitude(selected.transform.position - this.transform.position));
         }*/
 
-        if (selected != null  && Vector3.Magnitude(selected.transform.position - this.transform.position) <= grabDistance)
+        if (selected != null)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && !holding)
+            if (Input.GetKeyDown(KeyCode.Space) && !holding && Vector3.Magnitude(selected.transform.position - this.transform.position) <= grabDistance)
             {
                 selected.transform.SetParent(this.transform);
                 selected.GetComponent<BoxCollider>().size = new Vector3(targetColSize, targetColSize, targetColSize);
@@ -42,6 +43,11 @@ public class claw : MonoBehaviour
                 Physics.IgnoreCollision(selected.GetComponent<BoxCollider>(), bc, false);
                 holding = false;
             }
+        }
+
+        else
+        {
+            holding = false;
         }
 
     }

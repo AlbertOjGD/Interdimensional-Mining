@@ -21,10 +21,11 @@ public class Goal : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(currentLevel);
+            RestartStage();        
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+            if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("Tutorial");
         }
@@ -48,5 +49,10 @@ public class Goal : MonoBehaviour
             deliveredMat++;
             Destroy(other.gameObject);
         }
+    }
+
+    public void RestartStage()
+    {
+            SceneManager.LoadScene(currentLevel);
     }
 }

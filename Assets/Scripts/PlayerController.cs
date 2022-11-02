@@ -9,15 +9,13 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 inputLever;
 
+    public GameObject spawn;
+
     [SerializeField]
     private float speed;
     [SerializeField]
     private float rotSpeed;
     private float rotMaxSpeed;
-    [SerializeField]
-    private Transform rotPtL;
-    [SerializeField]
-    private Transform rotPtR;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +24,8 @@ public class PlayerController : MonoBehaviour
         speed = 3;
         rotSpeed = 0.5f;
         rotMaxSpeed = 0.8f;
+        spawn = GameObject.Find("SpawnPoint");
+        transform.position = spawn.transform.position;
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
     }
-    
+
     Vector2 GetInput()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.W))
