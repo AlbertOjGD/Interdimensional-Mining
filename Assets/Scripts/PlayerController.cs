@@ -50,11 +50,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!paused)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.W))
             {
                 inputLever.x = 1;
             }
-            else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.X))
+            else if (Input.GetKeyUp(KeyCode.Alpha9) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.X) || Input.GetKeyUp(KeyCode.Alpha0))
             {
                 inputLever.x = 0;
             }
@@ -62,17 +62,17 @@ public class PlayerController : MonoBehaviour
             {
                 inputLever.x = 0;
             }*/
-            else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.X))
+            else if (Input.GetKey(KeyCode.Alpha9) || Input.GetKey(KeyCode.X))
             {
                 inputLever.x = -1;
             }
 
-            if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Alpha2))
+            if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.H))
             {
                 inputLever.y = 1;
             }
 
-            else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Q))
+            else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.H) || Input.GetKeyUp(KeyCode.Alpha8))
             {
                 inputLever.y = 0;
             }
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
             {
                 inputLever.y = 0;
             }*/
-            else if (Input.GetKey(KeyCode.Z))
+            else if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Alpha8))
             {
                 inputLever.y = -1;
             }
