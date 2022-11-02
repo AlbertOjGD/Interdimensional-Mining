@@ -17,15 +17,25 @@ public class PlayerController : MonoBehaviour
     private float rotSpeed;
     private float rotMaxSpeed;
 
+    private bool paused;
+
+    public int score;
+
+    public ScoreCard scoreCard;
+
     // Start is called before the first frame update
     void Start()
     {
+
         rb = GetComponent<Rigidbody>();
-        speed = 3;
-        rotSpeed = 0.5f;
-        rotMaxSpeed = 0.8f;
+        speed = 4f;
+        rotSpeed = 0.8f;
+        rotMaxSpeed = 1.2f;
         spawn = GameObject.Find("SpawnPoint");
+        paused = false;
         transform.position = spawn.transform.position;
+        scoreCard = GameObject.Find("ScoreCard").GetComponent<ScoreCard>();
+        score = scoreCard.score;
     }
 
     // Update is called once per frame
@@ -41,41 +51,45 @@ public class PlayerController : MonoBehaviour
 
     Vector2 GetInput()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.W))
+        if (!paused)
         {
-            inputLever.x = 1;
-        }
-        else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.X))
-        {
-            inputLever.x = 0;
-        }
-        /*else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.S))
-        {
-            inputLever.x = 0;
-        }*/
-        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.X))
-        {
-            inputLever.x = -1;
+            if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.W))
+            {
+                inputLever.x = 1;
+            }
+            else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.X))
+            {
+                inputLever.x = 0;
+            }
+            /*else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.S))
+            {
+                inputLever.x = 0;
+            }*/
+            else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.X))
+            {
+                inputLever.x = -1;
+            }
+
+            if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Alpha2))
+            {
+                inputLever.y = 1;
+            }
+
+            else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Q))
+            {
+                inputLever.y = 0;
+            }
+
+            /*else if (Input.GetKey(KeyCode.A))
+            {
+                inputLever.y = 0;
+            }*/
+            else if (Input.GetKey(KeyCode.Z))
+            {
+                inputLever.y = -1;
+            }
         }
 
-        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Alpha2))
-        {
-            inputLever.y = 1;
-        }
-
-        else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Q))
-        {
-            inputLever.y = 0;
-        }
-
-        /*else if (Input.GetKey(KeyCode.A))
-        {
-            inputLever.y = 0;
-        }*/
-        else if (Input.GetKey(KeyCode.Z))
-        {
-            inputLever.y = -1;
-        }
         //Debug.Log(inputLever);
         return inputLever;
     }
@@ -161,5 +175,15 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    public IEnumerator Pause()
+    {
+        rb.velocity = Vector2.zero;
+        inputLever = Vector2.zero;
+        paused = true;
+        yield return new WaitForSeconds(0.5f);
+        transform.position = spawn.transform.position;
+        paused = false;
     }
 }

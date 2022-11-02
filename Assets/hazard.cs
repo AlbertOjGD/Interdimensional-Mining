@@ -10,8 +10,7 @@ public class hazard : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             PlayerController colScript = other.gameObject.GetComponent<PlayerController>();
-            colScript.rb.velocity = Vector2.zero;
-            other.transform.position = colScript.spawn.transform.position;
+            colScript.StartCoroutine("Pause");
         }
     }
 }
