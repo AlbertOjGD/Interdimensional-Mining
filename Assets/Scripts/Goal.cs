@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Goal : MonoBehaviour
 {
@@ -10,10 +11,18 @@ public class Goal : MonoBehaviour
     public string currentLevel;
     public string nextLevel;
 
+    public Animator animator;
+
+    public Text score;
+    public ScoreCard scoreCard;
+
+    private PlayerController pc;
     // Start is called before the first frame update
     void Start()
     {
-        
+        pc = GameObject.Find("Player").GetComponent<PlayerController>();
+        scoreCard = GameObject.Find("ScoreCard").GetComponent<ScoreCard>();
+
     }
 
     // Update is called once per frame
@@ -37,9 +46,13 @@ public class Goal : MonoBehaviour
 
         if (goalCount == deliveredMat /*|| Input.GetKeyDown(KeyCode.T)*/)
         {
-            SceneManager.LoadScene(nextLevel.ToString());
+            animator.SetTrigger("FadeOut");
             deliveredMat++;
+            StartCoroutine("LoadScene");
+            
         }
+
+        score.text = "Score : " + pc.score;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,5 +67,12 @@ public class Goal : MonoBehaviour
     public void RestartStage()
     {
             SceneManager.LoadScene(currentLevel);
+    }
+
+    private IEnumerator LoadScene()
+    {
+        scoreCard.score = pc.score;
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(nextLevel.ToString());
     }
 }

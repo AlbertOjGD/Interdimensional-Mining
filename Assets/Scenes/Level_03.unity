@@ -1308,7 +1308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532839004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.46, y: 1.47, z: 0}
+  m_LocalPosition: {x: 1.46, y: 1.47, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2383,8 +2383,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087298688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.6772, y: -6.3265, z: 0}
-  m_LocalScale: {x: 2.0021274, y: 4.8656344, z: 1}
+  m_LocalPosition: {x: -5.3169, y: -6.3265, z: 0}
+  m_LocalScale: {x: 2.722744, y: 4.8656344, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 394268539}
@@ -4196,18 +4196,6 @@ PrefabInstance:
     - target: {fileID: 2805901875408179167, guid: a72fd5ff9c0490e4286325cd76d08c2a, type: 3}
       propertyPath: m_Name
       value: Goal
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805901875734828423, guid: a72fd5ff9c0490e4286325cd76d08c2a, type: 3}
-      propertyPath: goalCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805901875734828423, guid: a72fd5ff9c0490e4286325cd76d08c2a, type: 3}
-      propertyPath: nextLevel
-      value: Tutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805901875734828423, guid: a72fd5ff9c0490e4286325cd76d08c2a, type: 3}
-      propertyPath: currentLevel
-      value: Level_03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a72fd5ff9c0490e4286325cd76d08c2a, type: 3}
