@@ -45,7 +45,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.0808691, g: 0.052865773, b: 0.11320752, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -176,6 +176,7 @@ MonoBehaviour:
   selected: {fileID: 0}
   bc: {fileID: 1190778684228703568}
   geo: {fileID: 0}
+  holding: 0
 --- !u!1 &1190778684228703574
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,10 +258,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   inputLever: {x: 0, y: 0}
+  spawn: {fileID: 0}
   speed: 0
   rotSpeed: 0
-  rotPtL: {fileID: 0}
-  rotPtR: {fileID: 0}
 --- !u!1 &7224718260538294926
 GameObject:
   m_ObjectHideFlags: 0
