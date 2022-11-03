@@ -567,6 +567,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7314924904704532720, guid: a8a27adecc7e4dc408cb86d12baa7cea, type: 3}
   m_PrefabInstance: {fileID: 196023073}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &211295790 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 211295790, guid: 9e0fbff2d14e05944b9fb85dcdb82c2a, type: 3}
+  m_PrefabInstance: {fileID: 1190778683933338692}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73801c9349081aa4f82a812479918abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &241165528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6554,6 +6565,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1190778683540851683, guid: 9e0fbff2d14e05944b9fb85dcdb82c2a, type: 3}
+      propertyPath: lightScript
+      value: 
+      objectReference: {fileID: 211295790}
     - target: {fileID: 1190778684228703571, guid: 9e0fbff2d14e05944b9fb85dcdb82c2a, type: 3}
       propertyPath: m_RootOrder
       value: 0
