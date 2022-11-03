@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
         paused = false;
         transform.position = spawn.transform.position;
         score = ScoreCard.score;
+        am.Play("BGM");
     }
 
     // Update is called once per frame

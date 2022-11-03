@@ -50,28 +50,40 @@ MonoBehaviour:
     volume: 0.05
     pitch: 1
     loop: 1
+    isPlaying: 0
     source: {fileID: 0}
   - name: GemsDeposited
     clip: {fileID: 8300000, guid: 1790e56f04c67884694c336003405e19, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
+    isPlaying: 0
     source: {fileID: 0}
   - name: BotOff
     clip: {fileID: 8300000, guid: 0a506928ba0284149858db2407349bdc, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
+    isPlaying: 0
     source: {fileID: 0}
   - name: PickUp
     clip: {fileID: 8300000, guid: f36184f00e453d843a98e28727a35928, type: 3}
     volume: 0.1
     pitch: 1
     loop: 1
+    isPlaying: 0
     source: {fileID: 0}
   - name: Collectable
     clip: {fileID: 8300000, guid: 7d9e208924a971945937e69aff988f54, type: 3}
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     loop: 0
+    isPlaying: 0
+    source: {fileID: 0}
+  - name: BGM
+    clip: {fileID: 8300000, guid: 41592bb366fee7e47bf4c84f3d24e958, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    isPlaying: 0
     source: {fileID: 0}
