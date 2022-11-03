@@ -29,14 +29,14 @@ public class claw : MonoBehaviour
 
         if (selected != null)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.J) && !holding && Vector3.Magnitude(selected.transform.position - this.transform.position) <= grabDistance)
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.J)) && !holding && Vector3.Magnitude(selected.transform.position - this.transform.position) <= grabDistance)
             {
                 selected.transform.SetParent(this.transform);
                 selected.GetComponent<BoxCollider>().size = new Vector3(targetColSize, targetColSize, targetColSize);
                 Physics.IgnoreCollision(selected.GetComponent<BoxCollider>(), bc);
                 holding = true;
             }
-            else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.J) && holding)
+            else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.J)) && holding)
             {
                 selected.transform.SetParent(geo.transform);
                 selected.GetComponent<BoxCollider>().size = new Vector3(defaultColSize, defaultColSize, defaultColSize);
@@ -54,7 +54,7 @@ public class claw : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "pickup")
+        if(other.gameObject.tag == "pickup" && !holding)
         {
             selected = other.gameObject;
         }
