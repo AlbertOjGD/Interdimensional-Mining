@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class Goal : MonoBehaviour
 {
+    //timer
+
+    [SerializeField] Text timerText;
+    float time = 0f;
+
+    //not timer
     public GameObject delivered;
     public int deliveredMat;
     public int goalCount;
@@ -27,6 +33,7 @@ public class Goal : MonoBehaviour
         pc = GameObject.Find("Player").GetComponent<PlayerController>();
         claw = GameObject.Find("Player").GetComponentInChildren<claw>();
         am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        time = ScoreCard.timer;
     }
 
     // Update is called once per frame
@@ -58,7 +65,8 @@ public class Goal : MonoBehaviour
 
         DeliverMaterials();
 
-        score.text = "Score : " + pc.score;
+        updateTimer();
+        score.text = "Score: " + pc.score;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -91,4 +99,18 @@ public class Goal : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(nextLevel.ToString());
     }
+
+    void updateTimer()
+    {
+        time += 1 * Time.deltaTime;
+        int minutes = (int)Mathf.Floor(time/60);
+        int seconds = (int)Mathf.Floor(time) % 60;
+        int tenths = (int) (time % 1 * 10);
+        int hundredths = (int)(time % 0.1 * 100);
+
+        timerText.text = "Time: " + minutes + "m " + seconds + "." + tenths + "" + hundredths + "s";
+
+        print(seconds%60);
+    }
+    
 }

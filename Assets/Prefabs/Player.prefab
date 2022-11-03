@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3217cd0988fe87b45a58bf99c6b8c097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 1190778684228703575}
   inputLever: {x: 0, y: 0}
   spawn: {fileID: 0}
   speed: 0

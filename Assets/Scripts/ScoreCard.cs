@@ -5,4 +5,5 @@ using UnityEngine;
 public static class ScoreCard
 {
     public static int score { get; set;}
+    public static float timer { get; set;}
 }
