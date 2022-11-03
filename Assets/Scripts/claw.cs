@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class claw : MonoBehaviour
 {
+    [SerializeField] SpinningLight lightScript;
+
     public GameObject selected;
     public BoxCollider bc;
     public GameObject geo;
@@ -39,6 +41,7 @@ public class claw : MonoBehaviour
                 selected.GetComponent<BoxCollider>().size = new Vector3(targetColSize, targetColSize, targetColSize);
                 Physics.IgnoreCollision(selected.GetComponent<BoxCollider>(), bc);
                 holding = true;
+                lightScript.toggleLight(true);
                 am.Play("PickUp");
             }
             else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.J)) && holding)
@@ -47,6 +50,7 @@ public class claw : MonoBehaviour
                 selected.GetComponent<BoxCollider>().size = new Vector3(defaultColSize, defaultColSize, defaultColSize);
                 Physics.IgnoreCollision(selected.GetComponent<BoxCollider>(), bc, false);
                 holding = false;
+                lightScript.toggleLight(false);
                 am.Stop("PickUp");
             }
         }

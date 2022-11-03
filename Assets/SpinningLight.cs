@@ -21,9 +21,9 @@ public class SpinningLight : MonoBehaviour
         }
     }
 
-    public void toggleLight()
+    public void toggleLight(bool toggle)
     {
-        if (!isCarrying)
+        if (toggle)
         {
             isCarrying = true;
             gameObject.SetActive(true);
