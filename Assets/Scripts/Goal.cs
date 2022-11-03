@@ -18,11 +18,15 @@ public class Goal : MonoBehaviour
 
     private PlayerController pc;
     private claw claw;
+
+    [SerializeField]
+    private AudioManager am;
     // Start is called before the first frame update
     void Start()
     {
         pc = GameObject.Find("Player").GetComponent<PlayerController>();
         claw = GameObject.Find("Player").GetComponentInChildren<claw>();
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -69,6 +73,7 @@ public class Goal : MonoBehaviour
     {
         if(!claw.holding && delivered != null)
         {
+            am.Play("GemsDeposited");
             pc.score += 10;
             deliveredMat++;
             Destroy(delivered);
