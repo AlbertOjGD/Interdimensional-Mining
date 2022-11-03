@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
     public int score;
 
+    public claw claw;
+
+    [SerializeField]
     private AudioManager am;
 
     // Start is called before the first frame update
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         rb = GetComponent<Rigidbody>();
+        claw = GetComponentInChildren <claw>();
         speed = 1f;
         rotSpeed = 0.6f;
         rotMaxSpeed = 0.8f;
@@ -41,6 +45,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         GetInput();
+        SoundManager();
     }
 
     private void FixedUpdate()
@@ -54,10 +59,12 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.W))
             {
+                am.Play("BotMoving");
                 inputLever.x = 1;
             }
             else if (Input.GetKeyUp(KeyCode.Alpha9) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.X) || Input.GetKeyUp(KeyCode.Alpha0))
             {
+                am.Stop("BotMoving");
                 inputLever.x = 0;
             }
             /*else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.S))
@@ -181,6 +188,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero;
         inputLever = Vector2.zero;
         paused = true;
+        claw.selected = null; 
         yield return new WaitForSeconds(0.5f);
         transform.position = spawn.transform.position;
         paused = false;
@@ -188,9 +196,10 @@ public class PlayerController : MonoBehaviour
 
     void SoundManager()
     {
-        if (rb.velocity.magnitude >= 0.1f)
+        
+        if (Mathf.Abs(rb.velocity.magnitude) >= 0.1f)
         {
-            //am.Play("BotMove");
+            
         }
     }
 }
