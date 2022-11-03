@@ -15,6 +15,7 @@ public class Sound
 
     [SerializeField]
     public bool loop;
+    public bool isPlaying;
 
     [HideInInspector]
     public AudioSource source;

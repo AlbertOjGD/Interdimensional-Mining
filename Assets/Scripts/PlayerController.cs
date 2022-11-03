@@ -59,12 +59,14 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.W))
             {
-                am.Play("BotMoving");
+                if (am.IsPlaying("BotMoving") != true)
+                {
+                    am.Play("BotMoving");
+                }
                 inputLever.x = 1;
             }
             else if (Input.GetKeyUp(KeyCode.Alpha9) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.X) || Input.GetKeyUp(KeyCode.Alpha0))
             {
-                am.Stop("BotMoving");
                 inputLever.x = 0;
             }
             /*else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.S))
@@ -73,11 +75,19 @@ public class PlayerController : MonoBehaviour
             }*/
             else if (Input.GetKey(KeyCode.Alpha9) || Input.GetKey(KeyCode.X))
             {
+                if (am.IsPlaying("BotMoving") != true)
+                {
+                    am.Play("BotMoving");
+                }
                 inputLever.x = -1;
             }
 
             if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.H))
             {
+                if (am.IsPlaying("BotMoving") != true)
+                {
+                    am.Play("BotMoving");
+                }
                 inputLever.y = 1;
             }
 
@@ -92,6 +102,10 @@ public class PlayerController : MonoBehaviour
             }*/
             else if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Alpha8))
             {
+                if (am.IsPlaying("BotMoving") != true)
+                {
+                    am.Play("BotMoving");
+                }
                 inputLever.y = -1;
             }
         }
@@ -105,6 +119,7 @@ public class PlayerController : MonoBehaviour
         //do nothing
         if (GetInput() == new Vector2(0, 0))
         {
+            am.Stop("BotMoving");
             rb.velocity = new Vector2(0, 0) * speed;
             rb.angularVelocity = Vector3.zero;
         }

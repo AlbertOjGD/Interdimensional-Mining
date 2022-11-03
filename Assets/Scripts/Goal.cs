@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Goal : MonoBehaviour
 {
+    public GameObject delivered;
     public int deliveredMat;
     public int goalCount;
     public string currentLevel;
@@ -16,10 +17,12 @@ public class Goal : MonoBehaviour
     public Text score;
 
     private PlayerController pc;
+    private claw claw;
     // Start is called before the first frame update
     void Start()
     {
         pc = GameObject.Find("Player").GetComponent<PlayerController>();
+        claw = GameObject.Find("Player").GetComponentInChildren<claw>();
     }
 
     // Update is called once per frame
@@ -49,6 +52,8 @@ public class Goal : MonoBehaviour
             
         }
 
+        DeliverMaterials();
+
         score.text = "Score : " + pc.score;
     }
 
@@ -56,9 +61,17 @@ public class Goal : MonoBehaviour
     {
         if (other.gameObject.name == "Mineral")
         {
+            delivered = other.gameObject;
+        }
+    }
+
+    void DeliverMaterials()
+    {
+        if(!claw.holding && delivered != null)
+        {
             pc.score += 10;
             deliveredMat++;
-            Destroy(other.gameObject);
+            Destroy(delivered);
         }
     }
 

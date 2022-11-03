@@ -14,10 +14,14 @@ public class claw : MonoBehaviour
     private float targetColSize = 0.6f;
     private float defaultColSize = 0.8f;
 
+    [SerializeField]
+    private AudioManager am;
+
 
     private void Start()
     {
-       geo = GameObject.Find("Geo");
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        geo = GameObject.Find("Geo");
     }
 
     private void Update()
@@ -35,6 +39,7 @@ public class claw : MonoBehaviour
                 selected.GetComponent<BoxCollider>().size = new Vector3(targetColSize, targetColSize, targetColSize);
                 Physics.IgnoreCollision(selected.GetComponent<BoxCollider>(), bc);
                 holding = true;
+                am.Play("PickUp");
             }
             else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.J)) && holding)
             {
@@ -42,6 +47,7 @@ public class claw : MonoBehaviour
                 selected.GetComponent<BoxCollider>().size = new Vector3(defaultColSize, defaultColSize, defaultColSize);
                 Physics.IgnoreCollision(selected.GetComponent<BoxCollider>(), bc, false);
                 holding = false;
+                am.Stop("PickUp");
             }
         }
 
