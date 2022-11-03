@@ -44,7 +44,7 @@ public class claw : MonoBehaviour
                 lightScript.toggleLight(true);
                 am.Play("PickUp");
             }
-            else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.J)) && holding)
+            else if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.J)) && holding)
             {
                 selected.transform.SetParent(geo.transform);
                 selected.GetComponent<BoxCollider>().size = new Vector3(defaultColSize, defaultColSize, defaultColSize);
