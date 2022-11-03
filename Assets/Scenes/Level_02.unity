@@ -488,6 +488,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: hazard
       objectReference: {fileID: 0}
+    - target: {fileID: 5746126758368755743, guid: 041e16c581e4cb4458fdd520dbc41cd4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9271213
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746126758368755743, guid: 041e16c581e4cb4458fdd520dbc41cd4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8060396
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746126758368755743, guid: 041e16c581e4cb4458fdd520dbc41cd4, type: 3}
+      propertyPath: m_Center.x
+      value: 0.009972387
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041e16c581e4cb4458fdd520dbc41cd4, type: 3}
 --- !u!1001 &39930986
@@ -10595,6 +10607,18 @@ PrefabInstance:
     - target: {fileID: 5746126758368755741, guid: 041e16c581e4cb4458fdd520dbc41cd4, type: 3}
       propertyPath: m_Name
       value: hazard (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746126758368755743, guid: 041e16c581e4cb4458fdd520dbc41cd4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.91767967
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746126758368755743, guid: 041e16c581e4cb4458fdd520dbc41cd4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8060396
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746126758368755743, guid: 041e16c581e4cb4458fdd520dbc41cd4, type: 3}
+      propertyPath: m_Center.x
+      value: 0.0052512465
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041e16c581e4cb4458fdd520dbc41cd4, type: 3}
