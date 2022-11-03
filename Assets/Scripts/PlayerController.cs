@@ -26,9 +26,9 @@ public class PlayerController : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody>();
-        speed = 4f;
-        rotSpeed = 0.8f;
-        rotMaxSpeed = 1.2f;
+        speed = 1f;
+        rotSpeed = 0.6f;
+        rotMaxSpeed = 0.8f;
         spawn = GameObject.Find("SpawnPoint");
         paused = false;
         transform.position = spawn.transform.position;
