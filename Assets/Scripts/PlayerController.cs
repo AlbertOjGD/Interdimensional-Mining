@@ -21,10 +21,12 @@ public class PlayerController : MonoBehaviour
 
     public int score;
 
+    private AudioManager am;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         rb = GetComponent<Rigidbody>();
         speed = 1f;
         rotSpeed = 0.6f;
@@ -182,5 +184,13 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         transform.position = spawn.transform.position;
         paused = false;
+    }
+
+    void SoundManager()
+    {
+        if (rb.velocity.magnitude >= 0.1f)
+        {
+            //am.Play("BotMove");
+        }
     }
 }
