@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private float rotSpeed;
     private float rotMaxSpeed;
 
-    private bool paused;
+    public bool paused;
 
     public int score;
 
@@ -204,7 +204,11 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero;
         inputLever = Vector2.zero;
         paused = true;
-        claw.selected = null; 
+        if(claw.selected != null && claw.holding)
+        {
+            claw.PutDown();
+            claw.selected = null;
+        }
         yield return new WaitForSeconds(0.5f);
         transform.position = spawn.transform.position;
         paused = false;

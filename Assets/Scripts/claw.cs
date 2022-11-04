@@ -19,11 +19,13 @@ public class claw : MonoBehaviour
     [SerializeField]
     private AudioManager am;
 
+    private PlayerController player;
 
     private void Start()
     {
         am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         geo = GameObject.Find("Geo");
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -33,7 +35,7 @@ public class claw : MonoBehaviour
             Debug.Log(Vector3.Magnitude(selected.transform.position - this.transform.position));
         }*/
 
-        if (selected != null)
+        if (selected != null && !player.paused)
         {
             if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.J)) && !holding && Vector3.Magnitude(selected.transform.position - this.transform.position) <= grabDistance)
             {
@@ -46,12 +48,7 @@ public class claw : MonoBehaviour
             }
             else if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.J)) && holding)
             {
-                selected.transform.SetParent(geo.transform);
-                selected.GetComponent<BoxCollider>().size = new Vector3(defaultColSize, defaultColSize, defaultColSize);
-                Physics.IgnoreCollision(selected.GetComponent<BoxCollider>(), bc, false);
-                holding = false;
-                lightScript.toggleLight(false);
-                am.Stop("PickUp");
+                PutDown();
             }
         }
 
@@ -68,5 +65,15 @@ public class claw : MonoBehaviour
         {
             selected = other.gameObject;
         }
+    }
+
+    public void PutDown()
+    {
+        selected.transform.SetParent(geo.transform);
+        selected.GetComponent<BoxCollider>().size = new Vector3(defaultColSize, defaultColSize, defaultColSize);
+        Physics.IgnoreCollision(selected.GetComponent<BoxCollider>(), bc, false);
+        holding = false;
+        lightScript.toggleLight(false);
+        am.Stop("PickUp");
     }
 }

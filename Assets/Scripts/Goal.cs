@@ -96,6 +96,7 @@ public class Goal : MonoBehaviour
     private IEnumerator LoadScene()
     {
         ScoreCard.score = pc.score;
+        ScoreCard.timer = time;
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(nextLevel.ToString());
     }
@@ -110,7 +111,7 @@ public class Goal : MonoBehaviour
 
         timerText.text = "Time: " + minutes + "m " + seconds + "." + tenths + "" + hundredths + "s";
 
-        print(seconds%60);
+        //print(seconds%60);
     }
     
 }

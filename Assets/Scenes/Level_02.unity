@@ -11622,6 +11622,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1101705963, guid: a72fd5ff9c0490e4286325cd76d08c2a, type: 3}
+      propertyPath: goalCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101705963, guid: a72fd5ff9c0490e4286325cd76d08c2a, type: 3}
       propertyPath: nextLevel
       value: Level_03
       objectReference: {fileID: 0}

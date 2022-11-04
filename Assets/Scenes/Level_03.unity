@@ -21375,6 +21375,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1101705963, guid: a72fd5ff9c0490e4286325cd76d08c2a, type: 3}
+      propertyPath: goalCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101705963, guid: a72fd5ff9c0490e4286325cd76d08c2a, type: 3}
+      propertyPath: nextLevel
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101705963, guid: a72fd5ff9c0490e4286325cd76d08c2a, type: 3}
+      propertyPath: currentLevel
+      value: Level_03
+      objectReference: {fileID: 0}
     - target: {fileID: 2805901875408179161, guid: a72fd5ff9c0490e4286325cd76d08c2a, type: 3}
       propertyPath: m_RootOrder
       value: 2
